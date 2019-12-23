@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 
 /*
 
