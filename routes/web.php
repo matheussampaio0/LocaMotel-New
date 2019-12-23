@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('homepage');
 });
 
+Auth::routes(['register' => false]);
 
 /*
 
@@ -30,4 +31,4 @@ Route::group(['prefix' => 'AdminPanel', 'prefix' => 'adminpanel'], function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/painel', 'HomeController@index')->name('painel');
