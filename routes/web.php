@@ -11,24 +11,17 @@
 |
 */
 
+// Página Inicial
 Route::get('/', function () {
     return view('homepage');
 });
 
+// Faz com que a rota 'register' seja acessada somente se autenticado
 Auth::routes(['register' => true]);
 
-/*
-
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'AdminPanel', 'prefix' => 'adminpanel'], function () {
-    Route::get('/', 'QuartosController@index')->name('adminpanel');
-    Route::get('/controlfuncionarios', 'QuartosController@controlfuncionarios')->name('controlfuncionarios');
+Route::group(['prefix' => 'Painel', 'prefix' => 'painel'], function () {
+    Route::get('/', 'HomeController@index')->name('painel');
+    Route::get('/controlefuncionarios', 'FuncionarioController@index')->name('controlfuncionarios');
 });
-
-*/
-
-Auth::routes();
-
-Route::get('/painel', 'HomeController@index')->name('painel');
