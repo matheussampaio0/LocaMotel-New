@@ -26,6 +26,8 @@
   <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Iconify -->
+  <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -191,15 +193,10 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" 
-              href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">>
+              href="#" data-toggle="modal" data-target="#modal-info">
               <i class="nav-icon far fa-circle text-danger"></i>
               <p class="text">Sair</p>
               </a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-              </form>
             </a>
           </li>
         </ul>
@@ -249,6 +246,33 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
+<div class="modal fade" id="modal-info">
+  <div class="modal-dialog">
+    <div class="modal-content bg-info">
+      <div class="modal-header">
+        <h4 class="modal-title">Confirmar Logout</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <p>Você tem certeza que deseja sair do sistema?</p>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-light"
+        href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">Sair</button>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          {{ csrf_field() }}
+        </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
 
 <!-- jQuery -->
 <script src="/plugins/jquery/jquery.min.js"></script>
