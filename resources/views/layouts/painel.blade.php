@@ -125,7 +125,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link @yield('nav-link1')">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Painel de Controle
@@ -134,19 +134,23 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="#" class="nav-link @yield('nav-link2')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Controle de Quartos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="{{route('controlfuncionarios')}}" class="nav-link
+                 @if (Route::currentRouteName() === 'controlfuncionarios')
+                 active
+                 @endif
+                 ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Controle de Funcionários</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="#" class="nav-link @yield('nav-link4')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Controle de Estoque</p>
                 </a>
@@ -154,7 +158,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link @yield('nav-link5')">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Relatórios
@@ -163,19 +167,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="pages/charts/chartjs.html" class="nav-link @yield('nav-link6')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Quartos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="pages/charts/flot.html" class="nav-link @yield('nav-link7')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Funcionários</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
+                <a href="pages/charts/inline.html" class="nav-link @yield('nav-link8')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Vendas</p>
                 </a>
@@ -183,7 +187,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="pages/calendar.html" class="nav-link @yield('nav-link9')">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Calendário
@@ -213,12 +217,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
+            <h1 class="m-0 text-dark"> @yield('title') </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Painel</a></li>
-              <li class="breadcrumb-item active">X</li>
+              <li class="breadcrumb-item active"> @yield('title')</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
