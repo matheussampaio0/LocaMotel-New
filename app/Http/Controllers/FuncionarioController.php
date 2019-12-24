@@ -3,17 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\quarto;
+use App\User;
+use App\Funcionario;
 
 class FuncionarioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Funcionario $funcionario)
     {
-        //
+        # Save all data of table 'funcionario' in $funcionarios
+        $funcionarios = $funcionario->all();
+
+        # Count how many users are in the database
+        $qtdfuncionarios = $funcionarios->filter(function ($funcionario) {
+            return $funcionario->id;
+        })->count();
+
+
+        return view('controlefuncionarios', compact('funcionarios', 'qtdfuncionarios'));
     }
 
     /**
