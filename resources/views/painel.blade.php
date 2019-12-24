@@ -1,5 +1,6 @@
 @extends('layouts.painel')
 
+@section('title') Painel @endsection
 
 @section('content')
 <!-- Small boxes (Stat box) -->
