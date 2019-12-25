@@ -9,8 +9,9 @@ use App\Funcionario;
 
 class FuncionarioController extends Controller
 {
-    public function __construct()
+    public function __construct(Funcionario $funcionario)
     {
+        $this->funcionario = $funcionario;
         $this->middleware('auth');
     }
 
@@ -73,7 +74,7 @@ class FuncionarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $funcionario = $this->funcionario->find($id);
     }
 
     /**
@@ -85,7 +86,18 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dataForm = $request->all();
+
+        $id = 1;
+
+        $funcionario = $this->funcionario->find($id);
+
+        $update = $funcionario->update();
+
+        if ($update)
+            return redirect()->route('painel');
+        else
+            return redirect()->route('controlfuncionarios')->with(['errros' => 'Falha ao Editar']);
     }
 
     /**
