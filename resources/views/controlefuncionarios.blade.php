@@ -55,27 +55,90 @@
                     </div>
                     <div class="modal-body">
                             <div class="card-body">
-                              <div class="row">
-                                <div class="col-3">
-                                  <input type="text" class="form-control" placeholder="{{$funcionario->nome}}">
-                                </div>
-                                <div class="col-4">
-                                  <input type="text" class="form-control" placeholder=".col-4">
-                                </div>
-                                <div class="col-5">
-                                  <input type="text" class="form-control" placeholder=".col-5">
-                                </div>
-                                <div class="col-6">
-                                    <input type="text" class="form-control" placeholder=".col-5">
+                              <form form method="POST" action="{{route('controlfuncionariosupdate')}}">
+                                @csrf
+                                @method('PUT')
+                                <div class="form-row">
+                                  <div class="form-group col-md-5">
+                                    <label for="inputEmail4">Nome</label>
+                                    <input type="text" class="form-control" name="nome" value="{{$funcionario->nome}}">
+                                    <input type="hidden" class="form-control" name="id" value="{{$funcionario->id}}">
                                   </div>
-                              </div>
+                                  <div class="form-group col-md-4">
+                                    <label for="inputPassword4">CPF</label>
+                                    <input type="text" class="form-control" name="cpf" value="{{$funcionario->cpf}}">
+                                  </div>
+                                  <div class="form-group col-md-3">
+                                    <label for="inputPassword4">Celular</label>
+                                    <input type="text" class="form-control" name="celular" value="{{$funcionario->celular}}">
+                                    <input type="hidden" class="form-control" name="celular2" value="{{$funcionario->celular2}}">
+                                  </div>
+                                </div>
+                                <div class="form-row">
+                                <div class="form-group col-md-5">
+                                  <label for="inputAddress">Endereço</label>
+                                  <input type="text" class="form-control" name="address" value="{{$funcionario->rua}}">
+                                </div>
+                                <div class="form-group col-md-3">
+                                  <label for="inputAddress">Número</label>
+                                  <input type="text" class="form-control" name="numero" value="{{$funcionario->numerocasa}}">
+                                </div>
+                                <div class="form-group col-md-4">
+                                  <label for="inputAddress">Bairro</label>
+                                  <input type="text" class="form-control" name="bairro" value="{{$funcionario->bairro}}">
+                                </div>
+                                </div>
+                                <div class="form-row">
+                                  <div class="form-group col-md-6">
+                                    <label for="inputCity">Cidade</label>
+                                    <input type="text" class="form-control" name="cidade" value="{{$funcionario->cidade}}">
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label for="estado">Estado</label>
+                                    <select id="estado" class="form-control">
+                                      <option selected value="{{$funcionario->estado}}">{{$funcionario->estado}}</option>
+                                      <option value="AC">Acre</option>
+                                      <option value="AL">Alagoas</option>
+                                      <option value="AP">Amapá</option>
+                                      <option value="AM">Amazonas</option>
+                                      <option value="BA">Bahia</option>
+                                      <option value="CE">Ceará</option>
+                                      <option value="DF">Distrito Federal</option>
+                                      <option value="ES">Espírito Santo</option>
+                                      <option value="GO">Goiás</option>
+                                      <option value="MA">Maranhão</option>
+                                      <option value="MT">Mato Grosso</option>
+                                      <option value="MS">Mato Grosso do Sul</option>
+                                      <option value="MG">Minas Gerais</option>
+                                      <option value="PA">Pará</option>
+                                      <option value="PB">Paraíba</option>
+                                      <option value="PR">Paraná</option>
+                                      <option value="PE">Pernambuco</option>
+                                      <option value="PI">Piauí</option>
+                                      <option value="RJ">Rio de Janeiro</option>
+                                      <option value="RN">Rio Grande do Norte</option>
+                                      <option value="RS">Rio Grande do Sul</option>
+                                      <option value="RO">Rondônia</option>
+                                      <option value="RR">Roraima</option>
+                                      <option value="SC">Santa Catarina</option>
+                                      <option value="SP">São Paulo</option>
+                                      <option value="SE">Sergipe</option>
+                                      <option value="TO">Tocantins</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group col-md-2">
+                                    <label for="cep">CEP</label>
+                                    <input type="text" class="form-control" name="cep" value="{{$funcionario->cep}}">
+                                  </div>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                     </div>
                     <div class="modal-footer justify-content-between">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <button type ="submit" class="btn btn-primary">Salvar Mudanças</button>
                     </div>
+                  </form>
                   </div>
                   <!-- /.modal-content -->
                 </div>
