@@ -24,4 +24,5 @@ Auth::routes();
 Route::group(['prefix' => 'Painel', 'prefix' => 'painel'], function () {
     Route::get('/', 'HomeController@index')->name('painel');
     Route::get('/controlefuncionarios', 'FuncionarioController@index')->name('controlfuncionarios');
+    Route::put('/controlefuncionarios/update', 'FuncionarioController@update')->name('controlfuncionariosupdate');
 });
