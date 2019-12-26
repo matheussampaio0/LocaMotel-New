@@ -55,7 +55,7 @@
                     </div>
                     <div class="modal-body">
                             <div class="card-body">
-                              <form form method="POST" action="{{route('controlfuncionariosupdate')}}">
+                            <form form method="POST" action="{{route('controlfuncionariosupdate', $funcionario->id)}}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-row">
@@ -77,11 +77,11 @@
                                 <div class="form-row">
                                 <div class="form-group col-md-5">
                                   <label for="inputAddress">Endereço</label>
-                                  <input type="text" class="form-control" name="address" value="{{$funcionario->rua}}">
+                                  <input type="text" class="form-control" name="rua" value="{{$funcionario->rua}}">
                                 </div>
                                 <div class="form-group col-md-3">
                                   <label for="inputAddress">Número</label>
-                                  <input type="text" class="form-control" name="numero" value="{{$funcionario->numerocasa}}">
+                                  <input type="text" class="form-control" name="numerocasa" value="{{$funcionario->numerocasa}}">
                                 </div>
                                 <div class="form-group col-md-4">
                                   <label for="inputAddress">Bairro</label>

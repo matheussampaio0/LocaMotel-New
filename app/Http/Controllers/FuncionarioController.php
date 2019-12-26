@@ -88,16 +88,15 @@ class FuncionarioController extends Controller
     {
         $dataForm = $request->all();
 
-        $id = 1;
-
         $funcionario = $this->funcionario->find($id);
 
-        $update = $funcionario->update();
+        $update = $funcionario->update($dataForm);
 
-        if ($update)
+        if ($update) {
             return redirect()->route('painel');
-        else
+        } else {
             return redirect()->route('controlfuncionarios')->with(['errros' => 'Falha ao Editar']);
+        }
     }
 
     /**
