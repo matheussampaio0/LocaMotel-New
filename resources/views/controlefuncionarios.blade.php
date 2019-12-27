@@ -40,7 +40,7 @@
                 <td>{{ $funcionario->celular }}</td>
                 <td>
                     <a href="#" data-toggle="modal" data-target="#modal-{{$funcionario->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
-                    <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                    <a href="{{route('controlfuncionariodel', $funcionario->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                 </td>
               </tr>
               <!-- Modal -->
@@ -59,23 +59,33 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="form-row">
-                                  <div class="form-group col-md-5">
+                                  <div class="form-group col-md-8">
                                     <label for="inputEmail4">Nome</label>
                                     <input type="text" class="form-control" name="nome" value="{{$funcionario->nome}}">
-                                    <input type="hidden" class="form-control" name="id" value="{{$funcionario->id}}">
                                   </div>
                                   <div class="form-group col-md-4">
+                                    <label for="inputPassword4">Data do Nascimento</label>
+                                    <input type="date" class="form-control" name="datanasc" value="{{$funcionario->data}}">
+                                  </div>
+                                  <div class="form-group col-md-3">
                                     <label for="inputPassword4">CPF</label>
                                     <input type="text" class="form-control" name="cpf" value="{{$funcionario->cpf}}">
                                   </div>
                                   <div class="form-group col-md-3">
+                                    <label for="inputPassword4">RG</label>
+                                    <input type="text" class="form-control" name="rg" value="{{$funcionario->rg}}">
+                                  </div>
+                                  <div class="form-group col-md-3">
                                     <label for="inputPassword4">Celular</label>
                                     <input type="text" class="form-control" name="celular" value="{{$funcionario->celular}}">
-                                    <input type="hidden" class="form-control" name="celular2" value="{{$funcionario->celular2}}">
+                                  </div>
+                                  <div class="form-group col-md-3">
+                                    <label for="inputPassword4">Celular 02</label>
+                                    <input type="text" class="form-control" name="celular2" value="{{$funcionario->celular2}}">
                                   </div>
                                 </div>
                                 <div class="form-row">
-                                <div class="form-group col-md-5">
+                                <div class="form-group col-md-6">
                                   <label for="inputAddress">Endereço</label>
                                   <input type="text" class="form-control" name="rua" value="{{$funcionario->rua}}">
                                 </div>
@@ -83,7 +93,7 @@
                                   <label for="inputAddress">Número</label>
                                   <input type="text" class="form-control" name="numerocasa" value="{{$funcionario->numerocasa}}">
                                 </div>
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                   <label for="inputAddress">Bairro</label>
                                   <input type="text" class="form-control" name="bairro" value="{{$funcionario->bairro}}">
                                 </div>
@@ -95,8 +105,8 @@
                                   </div>
                                   <div class="form-group col-md-4">
                                     <label for="estado">Estado</label>
-                                    <select id="estado" class="form-control">
-                                      <option selected value="{{$funcionario->estado}}">{{$funcionario->estado}}</option>
+                                    <select id="estado" name="estado" class="form-control">
+                                      <option selected>{{$funcionario->estado}}</option>
                                       <option value="AC">Acre</option>
                                       <option value="AL">Alagoas</option>
                                       <option value="AP">Amapá</option>
@@ -132,8 +142,6 @@
                                   </div>
                                 </div>
                             </div>
-                            <!-- /.card-body -->
-                    </div>
                     <div class="modal-footer justify-content-between">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                       <button type ="submit" class="btn btn-primary">Salvar Mudanças</button>
@@ -148,6 +156,9 @@
             </tbody>
             <caption style="margin-left:5px"> Listando <strong>{{$qtdfuncionarios}}</strong> Funcionários</caption>
           </table>
+          <a type="button" href="{{route('controlfuncionarioadd')}}" class="btn btn-primary" style="margin:7px;">
+            Adicionar Funcionário
+          </a>
         </div>
         <!-- /.card-body -->
       </div>
