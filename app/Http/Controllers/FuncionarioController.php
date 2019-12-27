@@ -41,7 +41,7 @@ class FuncionarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('funcionarioadd');
     }
 
     /**
@@ -52,7 +52,15 @@ class FuncionarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataForm = $request->except(['_token', 'acesso', 'isAdmin']);
+
+        $insert = $this->funcionario->create($dataForm);
+
+        if ($insert) {
+            return redirect()->route('painel');
+        } else {
+            return redirect()->route('controlfuncionarios')->with(['errros' => 'Falha ao Editar']);
+        }
     }
 
     /**
@@ -63,7 +71,9 @@ class FuncionarioController extends Controller
      */
     public function show($id)
     {
-        //
+        $funcionario = $this->funcionario->find($id);
+
+        return view('funcionariodelete', compact('funcionario'));
     }
 
     /**
@@ -107,6 +117,14 @@ class FuncionarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $funcionario = $this->funcionario->find($id);
+
+        $delete = $funcionario->delete();
+
+        if ($delete) {
+            return redirect()->route('painel');
+        } else {
+            return redirect()->route('controlfuncionarios')->with(['errros' => 'Falha ao Editar']);
+        }
     }
 }
