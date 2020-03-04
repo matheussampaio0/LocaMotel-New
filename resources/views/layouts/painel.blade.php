@@ -40,10 +40,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+      <a href="{{route('painel')}}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contato</a>
+      <a href="{{route('contact')}}" class="nav-link">Contato</a>
       </li>
     </ul>
 
@@ -88,11 +88,6 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-          <i class="fas fa-th-large"></i>
-        </a>
       </li>
     </ul>
   </nav>
@@ -236,10 +231,9 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2019 <a href="http://google.com">LocaMotel</a>.</strong>
-    All rights reserved.
+    <strong>Copyright &copy; 2020 <a>LocaMotel</a></strong>
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.0.1
+      <b>Versão</b> Beta
     </div>
   </footer>
 

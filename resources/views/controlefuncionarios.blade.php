@@ -4,10 +4,6 @@
 
 @section('content')
 
-<script type="text/javascript">
-  $("#celular1, #celular2").mask("(00) 0000-0000");
-  </script>
-
 <div class="row">
     <div class="col-12">
       <div class="card">
