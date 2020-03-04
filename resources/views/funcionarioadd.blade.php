@@ -3,6 +3,11 @@
 @section('title') Controle de Funcionários @endsection
 
 @section('content')
+
+<script type="text/javascript">
+  $("#celular1, #celular2").mask("(00) 0000-0000");
+  </script>
+
 <div class="row">
     <div class="col-12">
       <div class="card">
@@ -18,51 +23,51 @@
                     <div class="form-row">
                       <div class="form-group col-md-8">
                         <label for="inputEmail4">Nome</label>
-                        <input type="text" class="form-control" name="nome" placeholder="Nome Completo">
+                        <input type="text" class="form-control" name="nome" placeholder="Nome Completo" required>
                       </div>
                       <div class="form-group col-md-4">
                         <label for="inputPassword4">Data do Nascimento</label>
-                        <input type="date" class="form-control" name="datanasc" placeholder="Data">
+                        <input type="date" class="form-control" name="datanasc" placeholder="Data" required>
                       </div>
                       <div class="form-group col-md-3">
                         <label for="inputPassword4">CPF</label>
-                        <input type="text" class="form-control" name="cpf" placeholder="CPF">
+                        <input type="text" class="form-control" name="cpf" placeholder="CPF" required>
                       </div>
                       <div class="form-group col-md-3">
                         <label for="inputPassword4">RG</label>
-                        <input type="text" class="form-control" name="rg" placeholder="RG">
+                        <input type="text" class="form-control" name="rg" placeholder="RG" required>
                       </div>
                       <div class="form-group col-md-3">
                         <label for="inputPassword4">Celular</label>
-                        <input type="text" class="form-control" name="celular" placeholder="Celular">
+                        <input type="text" class="form-control" id="celular1" name="celular" placeholder="Celular" required>
                       </div>
                       <div class="form-group col-md-3">
                         <label for="inputPassword4">Celular 02</label>
-                        <input type="text" class="form-control" name="celular2" placeholder="Celular 02">
+                        <input type="text" class="form-control" id="celular" name="celular2" placeholder="Celular 02">
                       </div>
                     </div>
                     <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="inputAddress">Endereço</label>
-                      <input type="text" class="form-control" name="rua" placeholder="Endereço">
+                      <input type="text" class="form-control" name="rua" placeholder="Endereço" required>
                     </div>
                     <div class="form-group col-md-3">
                       <label for="inputAddress">Número</label>
-                      <input type="text" class="form-control" name="numerocasa" placeholder="Número da casa">
+                      <input type="text" class="form-control" name="numerocasa" placeholder="Número da casa" required>
                     </div>
                     <div class="form-group col-md-3">
                       <label for="inputAddress">Bairro</label>
-                      <input type="text" class="form-control" name="bairro" placeholder="Bairro">
+                      <input type="text" class="form-control" name="bairro" placeholder="Bairro" required>
                     </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="inputCity">Cidade</label>
-                        <input type="text" class="form-control" name="cidade" placeholder="Cidade">
+                        <input type="text" class="form-control" name="cidade" placeholder="Cidade" required>
                       </div>
                       <div class="form-group col-md-4">
                         <label for="estado">Estado</label>
-                        <select id="estado" name="estado" class="form-control">
+                        <select id="estado" name="estado" class="form-control" required>
                           <option selected>Escolha...</option>
                           <option value="AC">Acre</option>
                           <option value="AL">Alagoas</option>
@@ -95,7 +100,7 @@
                       </div>
                       <div class="form-group col-md-2">
                         <label for="cep">CEP</label>
-                        <input type="text" class="form-control" name="cep" placeholder="CEP (Só números)">
+                        <input type="text" class="form-control" name="cep" placeholder="CEP (Só números)" required>
                       </div>
                       <div class="form-group" style="margin:5px">
                         <div class="form-check form-check-inline">

@@ -3,6 +3,11 @@
 @section('title') Controle de Funcionários @endsection
 
 @section('content')
+
+<script type="text/javascript">
+  $("#celular1, #celular2").mask("(00) 0000-0000");
+  </script>
+
 <div class="row">
     <div class="col-12">
       <div class="card">
@@ -65,7 +70,7 @@
                                   </div>
                                   <div class="form-group col-md-4">
                                     <label for="inputPassword4">Data do Nascimento</label>
-                                    <input type="date" class="form-control" name="datanasc" value="{{$funcionario->data}}">
+                                    <input type="data" class="form-control" name="datanasc" value="{{$funcionario->datanasc}}">
                                   </div>
                                   <div class="form-group col-md-3">
                                     <label for="inputPassword4">CPF</label>
@@ -77,11 +82,11 @@
                                   </div>
                                   <div class="form-group col-md-3">
                                     <label for="inputPassword4">Celular</label>
-                                    <input type="text" class="form-control" name="celular" value="{{$funcionario->celular}}">
+                                    <input type="text" class="form-control" id="celular1" name="celular" value="{{$funcionario->celular}}">
                                   </div>
                                   <div class="form-group col-md-3">
                                     <label for="inputPassword4">Celular 02</label>
-                                    <input type="text" class="form-control" name="celular2" value="{{$funcionario->celular2}}">
+                                    <input type="text" class="form-control" id="celular2" name="celular2" value="{{$funcionario->celular2}}">
                                   </div>
                                 </div>
                                 <div class="form-row">
@@ -138,7 +143,7 @@
                                   </div>
                                   <div class="form-group col-md-2">
                                     <label for="cep">CEP</label>
-                                    <input type="text" class="form-control" name="cep" value="{{$funcionario->cep}}">
+                                    <input type="text" class="form-control cep-mask" name="cep" value="{{$funcionario->cep}}">
                                   </div>
                                 </div>
                             </div>
