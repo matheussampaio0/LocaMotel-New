@@ -96,6 +96,7 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Collect all data from From
         $dataForm = $request->all();
 
         $funcionario = $this->funcionario->find($id);

@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 // Faz com que a rota 'register' seja acessada somente se autenticado
-Auth::routes(['register' => true]);
+
 
 Auth::routes();
 
