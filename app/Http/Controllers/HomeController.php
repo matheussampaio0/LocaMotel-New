@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Funcionario;
 
 class HomeController extends Controller
 {
@@ -11,8 +12,9 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Funcionario $funcionario)
     {
+        $this->funcionario = $funcionario;
         $this->middleware('auth');
     }
 
@@ -26,8 +28,11 @@ class HomeController extends Controller
         return view('painel');
     }
 
-    public function contact()
+    public function contact(Funcionario $funcionario)
     {
-        return view('contacts');
+        # Save all data of table 'funcionario' in $funcionarios
+        $funcionarios = $funcionario->all();
+
+        return view('contacts', compact('funcionarios'));
     }
 }
