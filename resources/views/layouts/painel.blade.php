@@ -129,7 +129,11 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link @yield('nav-link2')">
+              <a href="{{route('indexquarto')}}" class="nav-link
+              @if (Route::currentRouteName() === 'indexquarto')
+              active
+              @endif
+              ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Controle de Quartos</p>
                 </a>

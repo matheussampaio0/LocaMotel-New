@@ -13,7 +13,7 @@ class QuartoController extends Controller
      */
     public function index()
     {
-        //
+        return view('quartos.controlequartos');
     }
 
     /**

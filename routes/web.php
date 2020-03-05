@@ -32,6 +32,14 @@ Route::group(['prefix' => 'Painel', 'prefix' => 'painel'], function () {
     Route::get('/controlefuncionarios/deletefuncionario/{id}', 'FuncionarioController@show')->name('controlfuncionariodel');
     Route::delete('/controlefuncionarios/deletefuncionario/{id}/deletar', 'FuncionarioController@destroy')->name('controlfuncionariodelete');
 
+    // Exibe os quartos e as funções UPDATE, ADD e DELETE
+    Route::get('/controlequartos', 'QuartoController@index')->name('indexquarto');
+    //Route::put('/controlequartos/update/{id}', 'QuartoController@update')->name('updatequarto');
+    //Route::get('/controlequartos/addfuncionario', 'QuartoController@create')->name('createquarto');
+    //Route::post('/controlequartos/addfuncionario/senddata', 'QuartoController@store')->name('storequarto');
+    //Route::get('/controlequartos/deletefuncionario/{id}', 'QuartoController@show')->name('showdeletequarto');
+    //Route::delete('/controlequartos/deletequarto/{id}/deletar', 'QuartoController@destroy')->name('destroyquarto');
+
     // Exibe o contato dos Funcionários
     Route::get('/contatos', 'HomeController@contact')->name('contact');
 });
