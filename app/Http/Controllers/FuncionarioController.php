@@ -31,7 +31,7 @@ class FuncionarioController extends Controller
         })->count();
 
 
-        return view('controlefuncionarios', compact('funcionarios', 'qtdfuncionarios'));
+        return view('funcionarios.controlefuncionarios', compact('funcionarios', 'qtdfuncionarios'));
     }
 
     /**
@@ -41,7 +41,7 @@ class FuncionarioController extends Controller
      */
     public function create()
     {
-        return view('funcionarioadd');
+        return view('funcionarios.funcionarioadd');
     }
 
     /**
@@ -73,7 +73,7 @@ class FuncionarioController extends Controller
     {
         $funcionario = $this->funcionario->find($id);
 
-        return view('funcionariodelete', compact('funcionario'));
+        return view('funcionarios.funcionariodelete', compact('funcionario'));
     }
 
     /**
