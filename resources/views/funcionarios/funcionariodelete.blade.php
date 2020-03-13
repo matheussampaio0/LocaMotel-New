@@ -100,7 +100,7 @@
                 <!-- /.card-body -->
         </div>
         <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <a type="button" href="{{route('controlfuncionarios')}}" class="btn btn-default">Cancelar</a>
           <form form method="POST" action="{{route('controlfuncionariodelete', $funcionario->id)}}">
             @csrf
             @method('DELETE')
