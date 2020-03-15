@@ -30,7 +30,11 @@
   
             <p>Manutenção</p>
           </div>
-          <a href="#" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="#" class="small-box-footer">Opções Disponíveis</a>
+          <div class="small-box-footer">
+            <a id="icon-eye" href="#" data-toggle="modal" data-target="#modal-{{$quarto->id}}" class="btn btn-info"><i class="fas fa-eye"></i></a>
+            <a id="icon-trash" href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+          </div>
         </div>
       </div>
       @elseif ($quarto->livre == 1)
@@ -58,6 +62,78 @@
         </div>
       </div>
     @endif
+
+    <div class="modal fade" id="modal-{{$quarto->id}}">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Informações do quarto 0{{$quarto->number}}</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault01">Nome</label>
+                  <input type="text" class="form-control" id="validationDefault01" value="{{$quarto->nome}}" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault02">Situação</label>
+
+                  <select class="custom-select">
+                    @if ($quarto->livre == 0)
+                    <option selected value="0">Indisponível</option>
+                    <option value="1">Disponível</option>
+                    <option value="2">Manutenção</option>
+                    @elseif ($quarto->livre == 1)
+                    <option value="0">Indisponível</option>
+                    <option selected value="1">Disponível</option>
+                    <option value="2">Manutenção</option>
+                    @else
+                    <option value="0">Indisponível</option>
+                    <option value="1">Disponível</option>
+                    <option selected value="2">Manutenção</option>
+                    @endif
+                  </select>
+
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefaultUsername">Preço p/Hora</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupPrepend2">R$</span>
+                    </div>
+                  <input type="text" class="form-control" id="validationDefaultUsername" value="{{$quarto->price}}" aria-describedby="inputGroupPrepend2" required>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-3 mb-3">
+                  <label for="validationDefault04">Número do Quarto</label>
+                  <input type="text" class="form-control" id="validationDefault04" value="{{$quarto->number}}" required>
+                </div>
+                <div class="mb-3">
+                  <label for="validationTextarea">Observação</label>
+                  <textarea class="form-control" id="validationTextarea" value="{{$quarto->description}}" placeholder="{{$quarto->description}}"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    
     @endforeach
     <hr>
     <a id="teste123" type="button" href="#" class="btn btn-primary">
