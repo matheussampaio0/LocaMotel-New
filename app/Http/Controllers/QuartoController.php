@@ -3,17 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Quarto;
 
 class QuartoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct(Quarto $quarto)
     {
-        return view('quartos.controlequartos');
+        $this->quarto = $quarto;
+        $this->middleware('auth');
+    }
+
+    public function index(Quarto $quarto)
+    {
+        # Save all data of table 'quarto' in $quartos
+        $quartos = $quarto->all();
+
+        # Count how many rooms are in the database
+        $qtdquartos = $quartos->filter(function ($quarto) {
+            return $quarto->id;
+        })->count();
+
+        return view('quartos.controlequartos', compact ('quartos', 'qtdquartos'));
     }
 
     /**

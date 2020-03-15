@@ -28,6 +28,8 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- Iconify -->
   <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+  <!-- styles -->
+  <link rel="stylesheet" href="/css/newcss.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
